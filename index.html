@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <nav>
+        <ul id="menu">
+    </nav>      
+
+      <script>
+        fetch('menu.json')
+        .then(response => response.json())
+        .then(data => {
+        const menu = document.querySelector('#menu');
+    
+        data.forEach(item => {
+         const li = document.createElement('li');
+         const a = document.createElement('a');
+      
+         a.textContent = item.title;
+         a.setAttribute('href', item.link);
+      
+        li.appendChild(a);
+         menu.appendChild(li);
+    });
+  });
+      </script>
+</body>
+</html>
